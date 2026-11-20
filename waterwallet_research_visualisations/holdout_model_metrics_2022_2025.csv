@@ -1,0 +1,4 @@
+model,mae_mm,rmse_mm,r2,prior_mae_mm,prior_rmse_mm,prior_r2
+Auto-SARIMA,156.129,212.009,0.326,63.76,108.66,0.823
+Same-month-last-year,73.502,127.698,0.756,73.5,127.7,0.756
+Recursive Random Forest,118.998,179.06,0.519,120.26,180.01,0.514

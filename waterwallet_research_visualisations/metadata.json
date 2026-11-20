@@ -1,0 +1,101 @@
+{
+  "generated_at_utc": "2026-10-27T18:05:12.613961+00:00",
+  "data_source": {
+    "source": "Open-Meteo Archive API",
+    "endpoint": "https://archive-api.open-meteo.com/v1/archive",
+    "parameters": {
+      "latitude": 19.22,
+      "longitude": 72.97,
+      "start_date": "2010-01-01",
+      "end_date": "2025-12-31",
+      "daily": "precipitation_sum",
+      "timezone": "Asia/Kolkata"
+    },
+    "retrieval_mode": "reused_local_csv"
+  },
+  "validation": {
+    "expected_daily_records": 5844,
+    "actual_daily_records": 5844,
+    "missing_dates": 0,
+    "duplicate_dates": 0,
+    "missing_or_non_numeric_precipitation": 0,
+    "negative_precipitation": 0
+  },
+  "monthly_observations": 192,
+  "train_period": "2010-01 through 2021-12 (144 months)",
+  "holdout_period": "2022-01 through 2025-12 (48 months)",
+  "autosarima_holdout": {
+    "order": [
+      1,
+      0,
+      0
+    ],
+    "seasonal_order": [
+      1,
+      0,
+      0,
+      12
+    ]
+  },
+  "autosarima_full_series": {
+    "order": [
+      1,
+      0,
+      0
+    ],
+    "seasonal_order": [
+      1,
+      0,
+      1,
+      12
+    ]
+  },
+  "random_forest": {
+    "n_estimators": 300,
+    "max_depth": 8,
+    "min_samples_leaf": 2,
+    "random_state": 42,
+    "recursive": true
+  },
+  "packages": {
+    "python": "3.13.1",
+    "pandas": "2.3.1",
+    "numpy": "2.3.2",
+    "matplotlib": "3.10.7",
+    "pmdarima": "2.1.1",
+    "scikit_learn": "1.9.0"
+  },
+  "figure_validation": {
+    "fig1_monthly_rainfall_seasonality.png": {
+      "bytes": 106577,
+      "height_px": 1354,
+      "width_px": 2614
+    },
+    "fig2_holdout_actual_vs_predicted.png": {
+      "bytes": 390557,
+      "height_px": 1474,
+      "width_px": 3034
+    },
+    "fig3_model_metrics_comparison.png": {
+      "bytes": 126619,
+      "height_px": 1281,
+      "width_px": 3039
+    },
+    "fig4_autosarima_12_month_forecast.png": {
+      "bytes": 246227,
+      "height_px": 1474,
+      "width_px": 3034
+    },
+    "fig5_tank_capacity_sensitivity.png": {
+      "bytes": 163086,
+      "height_px": 1204,
+      "width_px": 2884
+    }
+  },
+  "limitations": [
+    "Open-Meteo reanalysis/grid precipitation is not an on-site rain-gauge record.",
+    "The current bounded API Auto-SARIMA search differs from the older notebook's unconstrained call; metrics are not forced to match prior claims.",
+    "The storage sensitivity is a controlled model result, not field validation.",
+    "No ML yield/classifier metrics are presented as real-world validation because their targets/labels are formula- or rule-derived."
+  ]
+}
